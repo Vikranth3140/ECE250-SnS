@@ -1,2 +1,4 @@
-# S-S-Assignment
-Signals and Systems Assignments of IIITD
+# S&S-Assignment
+Signals and Systems Coding Assignments of IIITD
+
+They have been created using matplotlib on google collaboratory
