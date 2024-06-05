@@ -9,5 +9,5 @@
 - enable students to analyze signals using [Fourier transform](https://en.wikipedia.org/wiki/Fourier_transform), [Laplace transform](https://en.wikipedia.org/wiki/Laplace_transform), and [Z-Transform](https://en.wikipedia.org/wiki/Z-transform)
 
 This repository contains the solutions to all (programming) assignments given in the duration of the course.
-
+\
 The solutions have been written using matplotlib on google collaboratory
