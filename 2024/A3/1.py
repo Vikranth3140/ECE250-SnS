@@ -30,8 +30,8 @@ n_y_manual = np.arange(-10, len(y_manual) - 10)  # n range for manual convolutio
 n_y_np = np.arange(-10, len(y_np_convolve) - 10) # n range for np.convolve
 
 plt.figure(figsize=(10, 6))
-plt.plot(n_y_manual, y_manual, label='Manual Convolution', marker='o')
-plt.plot(n_y_np, y_np_convolve, label='np.convolve()', linestyle='--')
+plt.plot(n_y_manual, y_manual, label='Manual Convolution', color='blue', linewidth=2)
+plt.plot(n_y_np, y_np_convolve, label='np.convolve()', color='red', linewidth=1)
 plt.xlabel('n')
 plt.ylabel('Amplitude')
 plt.title('Comparison of Manual Convolution and np.convolve()')
