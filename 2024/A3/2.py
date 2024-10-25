@@ -1,34 +1,30 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Function to calculate Fourier coefficients
-def compute_fourier_coefficients(T1, T, k_values):
+def fourier_coeff(T, k_values):
     c_k = np.zeros_like(k_values, dtype=np.float64)
     for i, k in enumerate(k_values):
         if k == 0:
-            c_k[i] = 2 * T1 / T  # DC component
+            c_k[i] = 2 * 1 / T
         else:
             w_k = 2 * np.pi * k / T
-            c_k[i] = (T * np.sin(w_k * T1)) / (np.pi * k)
+            c_k[i] = (T * np.sin(w_k * 1)) / (np.pi * k)
     return c_k
 
-# Parameters
-T1 = 1  # Given T1 = 2 seconds (normalized to 1 for simplicity)
-k_values = np.arange(-50, 51)  # Fourier coefficients for k = -50 to 50
+k_values = np.arange(-50, 51)
 
-# Case a: T = 4T1
-T_a = 4 * T1
-c_k_a = compute_fourier_coefficients(T1, T_a, k_values)
+# a
+T_a = 4 * 1
+c_k_a = fourier_coeff(T_a, k_values)
 
-# Case b: T = 8T1
-T_b = 8 * T1
-c_k_b = compute_fourier_coefficients(T1, T_b, k_values)
+# b
+T_b = 8 * 1
+c_k_b = fourier_coeff(T_b, k_values)
 
-# Case c: T = 16T1
-T_c = 16 * T1
-c_k_c = compute_fourier_coefficients(T1, T_c, k_values)
+# c
+T_c = 16 * 1
+c_k_c = fourier_coeff(T_c, k_values)
 
-# Plotting the results
 plt.figure(figsize=(12, 8))
 
 plt.subplot(3, 1, 1)
