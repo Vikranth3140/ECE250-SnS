@@ -11,7 +11,7 @@ X_magnitude = np.abs(X_fft)
 frequencies = np.fft.fftfreq(64) * 64
 
 plt.figure(figsize=(10, 6))
-plt.stem(frequencies, X_magnitude, basefmt=" ", use_line_collection=True)
+plt.stem(frequencies, X_magnitude, basefmt=" ")
 plt.title('Magnitude Spectrum of x[n]')
 plt.xlabel('Frequency (Hz)')
 plt.ylabel('Magnitude')
@@ -19,7 +19,7 @@ plt.grid(True)
 plt.show()
 
 plt.figure(figsize=(10, 6))
-plt.stem(frequencies[:64//2], X_magnitude[:64//2], basefmt=" ", use_line_collection=True)
+plt.stem(frequencies[:64//2], X_magnitude[:64//2], basefmt=" ")
 plt.title('Magnitude Spectrum (Positive Frequencies)')
 plt.xlabel('Frequency (Hz)')
 plt.ylabel('Magnitude')
