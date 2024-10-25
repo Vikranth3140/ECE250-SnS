@@ -1,6 +1,12 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import butter, filtfilt, freqz, lfilter
+
+# Ensure the directory '5_Plots/' exists
+plot_dir = '5_Plots/'
+if not os.path.exists(plot_dir):
+    os.makedirs(plot_dir)
 
 # Step 1: Generate the composite signal x[n]
 fs = 1000  # Sampling frequency (1 / sampling interval)
@@ -50,10 +56,13 @@ plt.ylabel('Amplitude')
 plt.legend()
 
 plt.tight_layout()
+
+# Save the plot as a file in the '5_Plots/' directory
+plt.savefig(os.path.join(plot_dir, 'time_domain_signals.png'))
 plt.show()
 
 # Step 7: Frequency domain analysis - FFT
-def plot_fft(signal, fs, title):
+def plot_fft(signal, fs, title, filename):
     N = len(signal)
     f = np.fft.fftfreq(N, 1/fs)  # Frequency vector
     fft_vals = np.fft.fft(signal)  # FFT of the signal
@@ -61,21 +70,21 @@ def plot_fft(signal, fs, title):
     plt.title(title)
     plt.xlabel('Frequency [Hz]')
     plt.ylabel('Magnitude')
+    plt.tight_layout()
+    plt.savefig(os.path.join(plot_dir, filename))  # Save the plot in '5_Plots/'
+    plt.show()
 
 # Plot FFT of original, FIR filtered, and IIR filtered signals
 plt.figure(figsize=(12, 8))
 
 plt.subplot(3, 1, 1)
-plot_fft(x, fs, 'FFT of Original Signal')
+plot_fft(x, fs, 'FFT of Original Signal', 'fft_original_signal.png')
 
 plt.subplot(3, 1, 2)
-plot_fft(yfir, fs, 'FFT of FIR Filtered Signal')
+plot_fft(yfir, fs, 'FFT of FIR Filtered Signal', 'fft_fir_filtered_signal.png')
 
 plt.subplot(3, 1, 3)
-plot_fft(yiir, fs, 'FFT of IIR Filtered Signal')
-
-plt.tight_layout()
-plt.show()
+plot_fft(yiir, fs, 'FFT of IIR Filtered Signal', 'fft_iir_filtered_signal.png')
 
 # Frequency response of FIR filter
 plt.figure(figsize=(10, 6))
@@ -85,6 +94,8 @@ plt.title('FIR Filter Frequency Response')
 plt.xlabel('Frequency [Hz]')
 plt.ylabel('Gain')
 plt.grid(True)
+plt.tight_layout()
+plt.savefig(os.path.join(plot_dir, 'fir_filter_response.png'))  # Save FIR response plot
 plt.show()
 
 # Frequency response of IIR filter
@@ -95,4 +106,6 @@ plt.title('IIR Filter Frequency Response')
 plt.xlabel('Frequency [Hz]')
 plt.ylabel('Gain')
 plt.grid(True)
+plt.tight_layout()
+plt.savefig(os.path.join(plot_dir, 'iir_filter_response.png'))  # Save IIR response plot
 plt.show()
