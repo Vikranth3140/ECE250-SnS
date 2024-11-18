@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import math
 
 def fourier_coeff(T, k_values):
     c_k = np.zeros_like(k_values, dtype=np.float64)
@@ -28,19 +29,19 @@ c_k_c = fourier_coeff(T_c, k_values)
 plt.figure(figsize=(12, 8))
 
 plt.subplot(3, 1, 1)
-plt.stem(k_values, c_k_a, basefmt=" ", use_line_collection=True)
+plt.stem(k_values, abs(c_k_a), basefmt=" ", use_line_collection=True)
 plt.title("Fourier Coefficients for T = 4T1")
 plt.xlabel("k")
 plt.ylabel("$c_k$")
 
 plt.subplot(3, 1, 2)
-plt.stem(k_values, c_k_b, basefmt=" ", use_line_collection=True)
+plt.stem(k_values, abs(c_k_b), basefmt=" ", use_line_collection=True)
 plt.title("Fourier Coefficients for T = 8T1")
 plt.xlabel("k")
 plt.ylabel("$c_k$")
 
 plt.subplot(3, 1, 3)
-plt.stem(k_values, c_k_c, basefmt=" ", use_line_collection=True)
+plt.stem(k_values, abs(c_k_c), basefmt=" ", use_line_collection=True)
 plt.title("Fourier Coefficients for T = 16T1")
 plt.xlabel("k")
 plt.ylabel("$c_k$")
